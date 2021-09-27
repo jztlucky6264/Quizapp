@@ -9,6 +9,15 @@ const QuestionList = [
     ],
   },
   {
+    questionText: "capital of india?"",
+    answerOptions: [
+      { answerText: "Delhi", isCorrect: false },
+      { answerText: "Kolkata", isCorrect: false },
+      { answerText: "Goa", isCorrect: true },
+      { answerText: "Uttar pradesh", isCorrect: false },
+    ],
+  },
+  {
     questionText: "Who is CEO of Tata?",
     answerOptions: [
       { answerText: "Jeff Bezos", isCorrect: false },
