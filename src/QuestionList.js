@@ -9,7 +9,7 @@ const QuestionList = [
     ],
   },
   {
-    questionText: "capital of india?"",
+    questionText: "capital of india?",
     answerOptions: [
       { answerText: "Delhi", isCorrect: false },
       { answerText: "Kolkata", isCorrect: false },
