@@ -1,6 +1,8 @@
-import { Radio } from "@mui/material";
 import React, { useState } from "react";
 import QuestionList from "./QuestionList";
+import Button from "@mui/material/Button";
+import { useHistory } from "react-router-dom";
+
 const Quiz = ({ name }) => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
@@ -15,6 +17,7 @@ const Quiz = ({ name }) => {
     if (isCorrect === true) {
       setScore(score + 1);
     }
+    setSelect(" ");
   };
   const handleNext = () => {
     const nextQuetions = currentQuestion + 1;
@@ -26,6 +29,10 @@ const Quiz = ({ name }) => {
     } else {
       setShowScore(true);
     }
+  };
+  const history = useHistory();
+  const reTake_quiz = () => {
+    history.push("/");
   };
 
   return (
@@ -43,6 +50,11 @@ const Quiz = ({ name }) => {
         {showScore ? (
           <div className="score_section text-center text-black-50">
             You scored {score} out of {QuestionList.length}
+            <div className="mt-5 ">
+              <Button onClick={reTake_quiz} variant="contained">
+                ReTake Quiz
+              </Button>
+            </div>
           </div>
         ) : (
           <>
@@ -63,8 +75,8 @@ const Quiz = ({ name }) => {
                       type="radio"
                       value={select}
                       name="inlineRadioOptions"
+                      checked={select}
                       //id="inlineRadio1"
-
                       onChange={selectOne}
                       className=" me-2 form-check-input  "
                       onClick={() =>
@@ -82,8 +94,8 @@ const Quiz = ({ name }) => {
             <div className="text-center">
               <button
                 onClick={handleNext}
-                type="button"
                 class=" Lock_btn  w-50 btn mt-5 text-center btn-info"
+                type="button"
               >
                 Lock
               </button>
